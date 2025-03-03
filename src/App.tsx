@@ -1,25 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Header from './components/Header';
+import Sidebar from './components/Sidebar';
+import Main from './components/Main';
+import styles from './App.module.scss';
+import { createEntity, getTreeRows } from './api';
+import { useEffect, useState } from 'react';
+import { useLocaleStorage } from './hooks/useLocaleStorage';
+import { TreeRows } from './types';
+import Row from './components/Row';
 
-function App() {
+const App = () => {
+  const [entityId, setEntityId] = useLocaleStorage<string>('entityId');
+  const [treeRows, setTreeRows] = useState<TreeRows>();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setEntityId(await createEntity());
+    }
+    fetchData();
+  }, [setEntityId])
+
+  useEffect(() => {
+    if (!entityId) return;
+    const fetchData = async () => {
+      // await getTreeRows(entityId)
+      setTreeRows(await getTreeRows(entityId));
+    }
+    fetchData();
+  }, [entityId]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <div className={styles.layout}>
+        <Sidebar />
+        <Main>
+          {treeRows && <Row value={treeRows} initiallyOnEdit={!treeRows?.id} />}
+        </Main>
+      </div>
+    </>
   );
 }
 

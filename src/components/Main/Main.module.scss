@@ -1,53 +1,53 @@
 .main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 
-    h2 {
-        font-weight: 400;
-        border-bottom: 0.1rem solid #414144;
-    
-        span {
-            display: inline-block;
-            font-size: 1.8rem;
-            padding: 1.2rem 1.5rem;
-            border-right: 0.1rem solid #414144;
-        }
+  h2 {
+    font-weight: 400;
+    border-bottom: 0.1rem solid #414144;
+
+    span {
+      display: inline-block;
+      font-size: 1.8rem;
+      padding: 1.2rem 1.5rem;
+      border-right: 0.1rem solid #414144;
+    }
+  }
+
+  & .button {
+    text-align: start;
+    padding: 1.2rem 1.8rem;
+    background: none;
+    border: none;
+    color: #a1a1aa;
+    border-bottom: 0.1rem solid #414144;
+  }
+
+  main {
+    padding: 0 1rem;
+
+    display: grid;
+    grid-template-columns: max-content 1fr 20rem 20rem 20rem 20rem;
+    align-items: center;
+
+    & > * {
+      line-height: 4rem;
+      padding: 1.2rem 2rem;
+      border-bottom: 0.1rem solid #414144;
     }
 
-    & .button {
-        text-align: start;
-        padding: 1.2rem 1.8rem;
-        background: none;
-        border: none;
-        color: #A1A1AA;
-        border-bottom: 0.1rem solid #414144;
+    & > button {
+      line-height: initial;
     }
 
-    main {
-        padding: 0 1rem;
-
-        display: grid;
-        grid-template-columns: max-content 1fr 20rem 20rem 20rem 20rem;
-        align-items: center;
-    
-        & > * {
-            line-height: 4rem;
-            padding: 1.2rem 2rem;
-            border-bottom: 0.1rem solid #414144;
-        }
-
-        & > button {
-            line-height: initial;
-        }
-
-        input {
-            padding: 1rem;
-        }
+    input {
+      padding: 1rem;
     }
+  }
 }
 
 .page {
-    background-color: #202124;
-    flex: 1;
+  background-color: #202124;
+  flex: 1;
 }

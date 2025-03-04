@@ -118,7 +118,6 @@ export const Row: FC<Props> = ({
           })}
           onClick={(e) => e.stopPropagation()}
         >
-          {level !== 1 && <div className={styles.branch} />}
           <button
             className={styles.buttons__add}
             onClick={() => setOnAddNew(true)}
@@ -129,6 +128,7 @@ export const Row: FC<Props> = ({
             <TrashIcon />
           </button>
         </div>
+        {level !== 1 && <div className={styles.branch} />}
       </div>
       {onEdit &&
         fieldNames.map((field) => (

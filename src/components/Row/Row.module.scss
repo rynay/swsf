@@ -25,6 +25,7 @@
   align-items: center;
 
   &__container {
+    z-index: 1;
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -84,7 +85,6 @@
 
 .branch {
   position: absolute;
-  z-index: -1;
 
   &::before {
     content: "";
@@ -93,7 +93,7 @@
     left: 0;
     height: 6.5rem;
     width: 0.1rem;
-    transform: translate(-0.8rem, -6.5rem);
+    transform: translate(-0.4rem, -6.5rem);
     background-color: #fff;
   }
 
@@ -102,9 +102,9 @@
     position: absolute;
     top: 0;
     left: 0;
-    height: 1rem;
+    height: 1.2rem;
     width: 0.1rem;
-    transform: rotate(90deg) translate(-0.5rem, 0.25rem);
+    transform: rotate(90deg) translate(-0.5rem, -0.1rem);
     background-color: #fff;
   }
 }

@@ -4,7 +4,12 @@ import { API_ROUTES } from "./routes";
 
 export const createEntity = async (): Promise<string | undefined> => {
   try {
-    const response = await fetch(API_ROUTES.CREATE_ENTITY, { method: "POST" });
+    const response = await fetch(API_ROUTES.CREATE_ENTITY, {
+      method: "POST",
+      headers: {
+        "Content-Security-Policy": "upgrade-insecure-requests",
+      }
+    });
     const result = await response.json();
     return result?.id;
   } catch (error) {
@@ -16,7 +21,11 @@ export const getTreeRows = async (
   entityId: string,
 ): Promise<TreeRows[] | undefined> => {
   try {
-    const response = await fetch(API_ROUTES.GET_LIST(entityId));
+    const response = await fetch(API_ROUTES.GET_LIST(entityId), {
+      headers: {
+        "Content-Security-Policy": "upgrade-insecure-requests",
+      }
+    });
     return await response.json();
   } catch (error) {
     console.error(error);
@@ -29,6 +38,7 @@ export const createRow = async (entityId: string, value: Partial<TreeRows>) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "Content-Security-Policy": "upgrade-insecure-requests",
       },
       body: JSON.stringify({
         ...defaultRow,
@@ -67,6 +77,7 @@ export const updateRow = async (
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "Content-Security-Policy": "upgrade-insecure-requests",
       },
       body: JSON.stringify({
         ...defaultRow,
@@ -95,6 +106,9 @@ export const deleteRow = async (entityId: string, rowId: string) => {
   try {
     const response = await fetch(API_ROUTES.DELETE_ROW(entityId, rowId), {
       method: "DELETE",
+      headers: {
+        "Content-Security-Policy": "upgrade-insecure-requests",
+      }
     });
     const result = await response.json();
     console.log({ result });

@@ -1,21 +1,17 @@
 import { useEffect, useState } from "react"
 
-export const useLocaleStorage = <T>(key: string): readonly [T | undefined, React.Dispatch<React.SetStateAction<T | undefined>>] => {
-    const [value, setValue] = useState<T>();
+export const useLocaleStorage = <T>(key: string): readonly [T | null, React.Dispatch<React.SetStateAction<T | null>>] => {
+    const [value, setValue] = useState<T | null>(localStorage.getItem(key) as T ?? null);
 
     useEffect(() => {
         const result = localStorage.getItem(key);
         if (!result) return;
-        try {
-            setValue(JSON.parse(result) as T);
-        } catch {
-            setValue(result as T);
-        }
+        setValue(result.match(/\d+/)?.[0] as T ?? null);
     }, [key])
 
     useEffect(() => {
         if (!value) return;
-        localStorage.setItem(key, JSON.stringify(value));
+        localStorage.setItem(key, value.toString());
     }, [key, value]);
 
     return [value, setValue] as const;

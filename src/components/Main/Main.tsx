@@ -16,12 +16,12 @@ export const Main: FC<PropsWithChildren> = ({ children }) => {
             <h2>
                 <span>Строительно-монтажные работы</span>
             </h2>
-            <section>
-                {cells.map(cell => <button key={cell}>{cell}</button>)}
-            </section>
-            <main>
-                {children}
-            </main>
+            <div className={styles.page}>
+                <main>
+                    {cells.map(cell => <button className={styles.button} key={cell}>{cell}</button>)}
+                    {children}
+                </main>
+            </div>
         </div>
     )
 };

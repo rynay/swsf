@@ -15,35 +15,39 @@
         }
     }
 
-    section {
-        margin: 1rem;
-        margin-bottom: 0;
+    & .button {
+        text-align: start;
+        padding: 1.2rem 1.8rem;
+        background: none;
+        border: none;
+        color: #A1A1AA;
         border-bottom: 0.1rem solid #414144;
-        display: grid;
-        grid-template-columns: max-content 1fr 20rem 20rem 20rem 20rem;
-
-        button {
-            padding: 0 1.2rem 1.2rem;
-            background: none;
-            border: none;
-            color: #A1A1AA;
-        }
     }
 
     main {
-        margin: 0 1rem;
+        padding: 0 1rem;
+
         display: grid;
         grid-template-columns: max-content 1fr 20rem 20rem 20rem 20rem;
-        border-bottom: 0.1rem solid #414144;
-    
+        align-items: center;
     
         & > * {
-            padding: 1.2rem;
+            line-height: 4rem;
+            padding: 1.2rem 2rem;
+            border-bottom: 0.1rem solid #414144;
+        }
+
+        & > button {
+            line-height: initial;
         }
 
         input {
-            padding: 0;
-            margin: 1.2rem;
+            padding: 1rem;
         }
     }
+}
+
+.page {
+    background-color: #202124;
+    flex: 1;
 }

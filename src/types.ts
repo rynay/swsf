@@ -3,7 +3,11 @@ export type EntityResponse = {
     rowName: string;
 }
 
-export type TreeRows = {
+export type TreeRows = Row & {
+    child: TreeRows[];
+}
+
+export type Row = {
     equipmentCosts: number;
     estimatedProfit: number;
     machineOperatorSalary: number;
@@ -17,5 +21,4 @@ export type TreeRows = {
     supportCosts: number;
     id: number;
     total: number;
-    child: TreeRows[];
 }

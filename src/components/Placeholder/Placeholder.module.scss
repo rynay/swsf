@@ -1,0 +1,45 @@
+.placeholder {
+	width: 100%;
+	background-color: rgb(70, 70, 70);
+	border-radius: 8px;
+	position:relative;
+	overflow:hidden;
+	
+	&::before {
+		content: '';
+		width: 100%;
+		height: 100%;
+		position:absolute;
+		left:0;
+		top:0;
+        background: rgb(70, 70, 70);
+        background: radial-gradient(
+        circle,
+        rgb(70, 70, 70) 0%,
+        rgba(255, 255, 255, 0) 100%
+        );
+        animation: animationLoader 1.2s cubic-bezier(0.645, 0.045, 0.355, 1) both
+        infinite;
+	}
+
+    &_danger {
+        background-color: rgba(129, 45, 45, 0.5);
+        &::before {
+            background: rgba(129, 45, 45, 0.5);
+            background: radial-gradient(
+            circle,
+            rgba(129, 45, 45, 0.5) 0%,
+            rgba(255, 255, 255, 0) 100%
+            );
+        }
+    }
+}
+
+@keyframes animationLoader {
+	from {
+		left: -100%;
+	}
+	to {
+		left: 100%;
+	}
+}

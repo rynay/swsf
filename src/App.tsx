@@ -28,10 +28,12 @@ const App = () => {
     fetchData();
   }, [entityId, setEntityId]);
 
+  console.log({ treeRows, entityId })
+
   useEffect(() => {
     if (!entityId) return;
     const fetchData = async () => {
-      setTreeRows((await getTreeRows(entityId))?.[0]);
+      setTreeRows((await getTreeRows(entityId))?.[0] ?? {} as TreeRows);
     };
     fetchData();
   }, [entityId]);

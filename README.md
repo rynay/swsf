@@ -1,5 +1,6 @@
 ![Preview](./preview.gif)
 
 Запустить проект:
-```npm install```
+```npm install``` 
+&&
 ```npm run start```

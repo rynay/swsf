@@ -1,3 +1,5 @@
-# Деплой
+![Preview](./preview.gif)
 
-https://swsf-tau.vercel.app/
+Запустить проект:
+```npm install```
+```npm run start```

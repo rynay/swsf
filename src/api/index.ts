@@ -18,11 +18,7 @@ export const getTreeRows = async (
   entityId: string,
 ): Promise<TreeRows[] | undefined> => {
   try {
-    const response = await fetch(API_ROUTES.GET_LIST(entityId), {
-      headers: {
-        "Content-Security-Policy": "upgrade-insecure-requests",
-      }
-    });
+    const response = await fetch(API_ROUTES.GET_LIST(entityId));
     return await response.json();
   } catch (error) {
     console.error(error);

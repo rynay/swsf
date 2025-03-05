@@ -28,8 +28,6 @@ const App = () => {
     fetchData();
   }, [entityId, setEntityId]);
 
-  console.log({ treeRows, entityId })
-
   useEffect(() => {
     if (!entityId) return;
     const fetchData = async () => {
